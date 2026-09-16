@@ -1,0 +1,26 @@
+
+body{
+    background-color: rgb(250, 237, 217);
+}
+
+.logo{
+    width: 20%;
+    height: auto;
+    margin-top: 1%;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+
+.iniciopag{
+
+    display: inline-block;
+    padding: 2.5%;
+
+
+}
+
+#cabecero{
+    background-color: rgb(245, 232, 212);
+    border-radius: 1em;
+}
+
