@@ -66,3 +66,12 @@ body{
     display: inline-block;
     position: static
 }
+
+.dentrotarjeta{
+    display: flex;
+    flex-direction: column;
+}
+
+.dentrotarjeta p{
+    
+}
