@@ -59,3 +59,10 @@ body{
     
 }
 
+.tarjeta{
+    background-color: rgba(248, 242, 123, 0.547);
+    padding: 8em;
+    margin:3em;
+    display: inline-block;
+    position: static
+}
