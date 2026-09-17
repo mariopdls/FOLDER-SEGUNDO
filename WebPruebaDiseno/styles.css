@@ -9,18 +9,28 @@ body{
     margin-top: 1%;
     margin-top: 1%;
     margin-left: 2%;
+
 }
 
 .iniciopag{
 
     display: inline-block;
+    margin: 2px;
     padding: 2.5%;
+    background-color: rgb(250, 234, 209);
+    border-radius: 1%;
+    border: 1px solid black;
+    cursor: pointer;
 
+}
 
+.iniciopag:hover{
+    background-color: rgb(192, 165, 9);
 }
 
 #cabecero{
     background-color: rgb(245, 232, 212);
     border-radius: 1em;
+
 }
 
