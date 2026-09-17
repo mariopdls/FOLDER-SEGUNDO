@@ -34,3 +34,4 @@ document.getElementById(evaluarEdad(100)).textContent;
 // Enunciado:
 // Crea una función llamada mostrarImpares que recorra un array de números y devuelva un
 // nuevo array con solo los números impares. Luego, imprime el array resultante en la consola.
+
