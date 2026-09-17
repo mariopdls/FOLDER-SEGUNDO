@@ -27,7 +27,6 @@ function evaluarEdad(number) {
     return document.getElementById(respuesta).textContent;
 }
 
-document.getElementById(evaluarEdad(100)).textContent;
 
 // Ejercicio 2: Bucles y Arrays
 // Objetivo: Evaluar el uso de bucles y la manipulación de arrays.
@@ -35,3 +34,70 @@ document.getElementById(evaluarEdad(100)).textContent;
 // Crea una función llamada mostrarImpares que recorra un array de números y devuelva un
 // nuevo array con solo los números impares. Luego, imprime el array resultante en la consola.
 
+const arraydeimpares= [2,6,3,2,1,5,9,11];
+
+
+function mostrarImpares(array) {
+    let arrayImpares = [];
+    for (let i = 0; i < array.length; i++) {
+        
+        if (array[i]%2!=0){
+            arrayImpares+=array[i] + " ";
+        }
+        
+    }
+    console.log("[ " + arrayImpares + "]");
+}
+
+mostrarImpares(arraydeimpares);
+
+// Ejercicio 3: Funciones y Recursividad
+// Enunciado:
+// Escribe una función llamada factorial que calcule el factorial de un número de forma
+// recursiva. El factorial de un número entero positivo n se define como el producto de todos los
+// números enteros desde 1 hasta n . Si n es 0, el factorial es 1.
+
+function factorial(num){
+
+    let nuevoNum=1;
+    let i = 1;
+
+    if (num==0){
+        console.log(1);
+    }
+    else{
+
+        let numeroInicial = num;
+
+        for (let i = 1; i < num; i++) {
+            resultadoPaso= numeroInicial*i
+            numeroInicial=resultadoPaso;
+        }
+
+    }
+
+
+
+    return console.log();
+
+}
+
+factorial(5);
+
+// Ejercicio 4: Manejo de Cadenas (Strings)
+// Objetivo: Evaluar el uso de métodos de manipulación de cadenas en JavaScript.
+// Enunciado:
+// Crea una función llamada invertirCadena que reciba una cadena como parámetro y devuelva
+// la cadena invertida. No puedes usar métodos de arrays como reverse() .
+
+function invertirCadena (cadena) {
+
+    let cadenaInversa="";
+
+    for (let i = cadena.length-1; i >= 0; i--) {
+        cadenaInversa+=cadena[i];
+    }
+    return console.log(cadenaInversa);
+}
+
+    invertirCadena("hola")
