@@ -102,9 +102,46 @@ function invertirCadena (cadena) {
 
     invertirCadena("hola")
 
+/*ejercicio 5*/
+
+    const texto= document.getElementById("texto1");
+    const boton = document.getElementById("button");
+    const parrafito = document.getElementById("parrafito");
+       
+    boton.addEventListener("click", () => {
+            parrafito.textContent = texto.value;
+        })
+    
 
 /*ejercicio 6*/
 
-nombre = document.getElementById("nombre");
-email= document.getElementById("email");
-numero = document.getElementById("number");
+const nombre = document.getElementById("nombre");
+const email= document.getElementById("email");
+const edad = document.getElementById("edad");
+const validacionMail= /@.*?\./ 
+
+
+if (!nombre.value.trim()){
+    console.error("No está el nombre");
+    
+}
+else if (edad.value<18 || edad.value>100){
+    console.error("La edad es incorrecta");
+    
+}
+else if (!validacionMail.test(email.value.trim()) ){
+    console.error("Email no validado");
+}
+
+/*ejercicio 7*/
+
+async function obtenerDatos(){
+    
+    const respuesta= await fetch('https://jsonplaceholder.typicode.com/users');
+
+    const datosFinales= await respuesta.json();
+
+    console.log(datosFinales);
+
+}
+obtenerDatos();
