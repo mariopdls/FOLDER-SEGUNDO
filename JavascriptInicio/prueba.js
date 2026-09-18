@@ -101,3 +101,10 @@ function invertirCadena (cadena) {
 }
 
     invertirCadena("hola")
+
+
+/*ejercicio 6*/
+
+nombre = document.getElementById("nombre");
+email= document.getElementById("email");
+numero = document.getElementById("number");

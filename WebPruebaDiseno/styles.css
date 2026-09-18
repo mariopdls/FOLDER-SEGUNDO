@@ -3,6 +3,14 @@ body{
     background-color: rgb(250, 237, 217);
 }
 
+
+footer{
+    background-color: rgb(47, 45, 45);
+    padding: 6em;
+    display: flex;
+    flex-direction: row;
+}
+
 #cabecero{
     background-color: rgb(245, 232, 212);
     border-radius: 1em;
@@ -56,22 +64,35 @@ body{
     flex-direction: column;
     align-items: center;
     margin-top: 2em;
+    font-size: 2em;
     
 }
 
 .tarjeta{
     background-color: rgba(248, 242, 123, 0.547);
-    padding: 8em;
+    padding: 5em;
     margin:3em;
     display: inline-block;
-    position: static
+    
 }
 
 .dentrotarjeta{
     display: flex;
+    align-items: center;
     flex-direction: column;
+    gap: 3em;
+    font-size: 2em;
 }
 
-.dentrotarjeta p{
-    
+.image2{
+    height: 11em;
+}
+
+.image1{
+    height: 11em;
+}
+
+.imagefooter{
+    height: 6em;
+    margin-right: 8em;
 }
