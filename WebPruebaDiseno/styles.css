@@ -1,6 +1,7 @@
 
 body{
     background-color: rgb(250, 237, 217);
+    background-attachment: fixed;
 }
 
 
@@ -10,6 +11,8 @@ footer{
     display: flex;
     flex-direction: row;
 }
+
+
 
 #cabecero{
     background-color: rgb(245, 232, 212);
@@ -43,18 +46,19 @@ footer{
     margin: 2em;
     padding: 1.4em;
     background-color: rgb(250, 234, 209);
-    border-radius: 1%;
-    border: 1px solid black;
-    border-radius: 1em;
     cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border: 0.1em solid black;
 }
 
 
 .iniciopag:hover{
     background-color: rgb(251, 217, 19);
-    transition: 1.5s;
+    border: 0.2em solid black;
+
 }
 
 
@@ -78,6 +82,11 @@ footer{
     margin:4em;
     display: inline-block;
     
+}
+
+.textoParteDos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
 }
 
 .dentrotarjeta{
@@ -111,7 +120,51 @@ footer{
     font-display: swap;
 }
 
+.terceraParte{
+    margin-top: -15em;
+    margin-bottom: 5em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.terceraParte h4{
+    font-size: 2em;
+}
+
+.terceraParte h4:hover{
+    zoom: 120%;
+    transition: 1s;
+}
+
 .textoSegunda:hover{
      zoom: 120%;
      transition: 2s;
+}
+
+.nombreForm{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.botonForm{
+    padding: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+    background-color: rgb(255, 255, 255);
+}
+
+.legend{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.9em;
+}
+
+.parrafoWho{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.4em;
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+.imgContacto{
+    width: 10em;
 }

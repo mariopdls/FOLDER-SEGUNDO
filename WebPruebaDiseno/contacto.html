@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Contacto Hoylo</title>
+    <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+
+    <header id="cabecero">
+        <img src="images/logo.png" alt="logo" class="logo">
+
+        <nav class="botonescabecero">
+            <a class="iniciopag" href="index.html"> Inicio </a>
+            <a class="iniciopag" href="whoami.html"> ¿Quienes somos? </a>
+            <a class="iniciopag" href="acercade.html"> Acerca de </a>
+            <a class="iniciopag" href="contacto.html"> Contacto </a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <h1 class="titulos">Contacta con Hoylo</h1>
+
+        <div style="display: flex; align-items: center; flex-direction: column;">
+            <img src="images/cont.webp" alt="Imagen de contacto de Hoylo" class="imgContacto">
+
+            <p class="parrafoWho">¿Tienes una duda, una idea o quieres proponernos un reto? Escríbenos, nos encantará leerte.</p>
+            <br>
+ <form action="formulario" method="get">
+
+                <fieldset>
+
+                <legend class="legend">Formulario de contacto</legend>
+
+                <label for="Nombre">
+                    <p class="nombreForm">Nombre</p>
+                    <input type="text" id="nombre">
+
+                    <br>
+
+                    <p class="nombreForm">Apellidos</p>
+                    <input type="text" id="apellidos">
+
+                    <p class="nombreForm">Número de teléfono</p>
+                    <input type="text" id="telefono">
+
+                    <p class="nombreForm">Descripción</p>
+                    <input type="text" name="razon" id="razon" size="100em" style="padding: 3em;">
+
+                    <br><br>
+                    <button type="submit" class="botonForm" id="botonEnviar">¡Enviar!</button>
+
+                </label>
+
+                </fieldset>
+
+            </form>
+
+
+            <p class="parrafoWho">
+                Teléfono: +34 616 69 86 49<br>
+                Facebook: Hoylo App<br>
+                Twitter: @HoyloApp
+            </p>
+            <br>
+        </div>
+
+    </main>
+
+    <footer>
+
+        <img src="images/logo.png" class="imagefooter">
+        <p style="color: white; font-size: 1.2em;">Redes:<br><br>- +34 616 69 86 49 <br> - Facebook: Hoylo App<br>- Twitter: @HoyloApp</p>
+
+    </footer>
+
+</body>
+</html>
