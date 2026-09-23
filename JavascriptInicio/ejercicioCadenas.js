@@ -204,7 +204,264 @@ function generarNombre(cadena1, cadena2, cadena3){
 
 generarNombre("Ping", "Holaaaa", "hamburguesa")
 
-// Hacer una función generarNombre2 que reciba como parámetros de entrada tres cadenas de texto. Si la longitud de alguna cadena cadena es menor que cinco, la función debe devolver el texto ‘error’. Si ninguna cadena tiene menos de 5 letras, devolver una nueva palabra utilizando la última letra de cada palabra.
+// Hacer una función generarNombre2 que reciba como parámetros de entrada tres cadenas de texto.
+// Si la longitud de alguna cadena cadena es menor que cinco, la función debe devolver el texto ‘error’. 
+// Si ninguna cadena tiene menos de 5 letras, devolver una nueva palabra utilizando la última letra de cada palabra.
 
-// Hacer una función generarNombre3 que reciba como parámetros de entrada tres cadenas de texto. Si la longitud de alguna cadena cadena es menor que cinco, la función debe devolver el texto ‘error’. Si ninguna cadena tiene menos de 5 letras, devolver una nueva palabra utilizando las tres últimas letras de cada palabra.
+function generarNombre2(cadena1, cadena2, cadena3){
 
+    let arrayCadenas = [cadena1,cadena2,cadena3];
+    let nuevaPalabra="";
+    let bandera = false;
+
+    for (let i = 0; i < arrayCadenas.length; i++) {
+        
+        if (arrayCadenas[i].length <5){
+            bandera=true;
+            console.error("Bro no es correcto")
+        }
+
+        if (!bandera){
+
+            nuevaPalabra += arrayCadenas[i].substring(arrayCadenas[i].length-1,arrayCadenas[i].length);
+        }
+        
+    }
+
+    if (!bandera){
+        console.log(nuevaPalabra);
+    }
+
+}
+
+generarNombre2("p", "Holaaaa", "hamburguesa");
+
+
+// Hacer una función generarNombre3 que reciba como parámetros de entrada tres cadenas de texto. 
+// Si la longitud de alguna cadena cadena es menor que cinco, la función debe devolver el texto ‘error’
+// . Si ninguna cadena tiene menos de 5 letras, devolver una nueva palabra utilizando las tres últimas letras de cada palabra.
+
+function generarNombre3(cadena1, cadena2, cadena3){
+
+    let arrayCadenas = [cadena1,cadena2,cadena3];
+    let nuevaPalabra="";
+    let bandera = false;
+
+    for (let i = 0; i < arrayCadenas.length; i++) {
+        
+        if (arrayCadenas[i].length <5){
+            bandera=true;
+            console.error("Bro no es correcto")
+        }
+
+        if (!bandera){
+
+            nuevaPalabra += arrayCadenas[i].substring(arrayCadenas[i].length-3,arrayCadenas[i].length);
+        }
+        
+    }
+
+    if (!bandera){
+        console.log(nuevaPalabra);
+    }
+
+}
+
+generarNombre3("pringadete", "makumba", "payet");
+
+
+
+
+/*Hacer una función tieneLetra que reciba como parámetro de entrada una cadena de texto y una letra 
+y devuelva true si la letra esta presente en la palabra y false si no lo esta.
+ Utilizar para ello el método indexOf.*/
+
+ function tieneLetra(cadena, letra){
+
+    let bandera= true;
+    if ((String(cadena).indexOf(String(letra).toLocaleLowerCase)) == -1){
+        bandera=false;
+    }
+
+    return console.log(bandera);
+}
+tieneLetra("hola","x")
+
+ /*
+
+ Realizar la evaluación del ejercicio anterior sin tener en cuenta si la letra pasada como parámetro esta en mayúsculas o minúsculas
+
+
+ */
+ function tieneLetra2(cadena, letra){
+
+    let bandera= true;
+    if ((String(cadena).indexOf(String(letra))) == -1 && String(letra).toLocaleUpperCase().match((String(cadena).indexOf(String(letra))).toLocaleUpperCase)){
+        bandera=true;
+    }
+
+    return console.log(bandera);
+}
+tieneLetra2("hola","x");
+
+ /*
+
+ Hacer una función crearPalabra que reciba como parámetro de entrada una letra y un número 
+ y genere una nueva palabra que tenga la letra introducida repetida tantas veces como indique el número.
+ */
+
+function crearPalabra(letra,numero){
+
+    let nuevaPalabra= "";
+    for (let i = 0; i < numero; i++) {
+        nuevaPalabra+=letra;
+        
+    }
+    console.log(nuevaPalabra);
+}
+crearPalabra("a", 5);
+
+
+ /*
+Completar el ejercicio anterior haciendo que en la nueva palabra generada las letras esten en mayúsculas.
+*/
+
+function crearPalabra2(letra,numero){
+
+    let nuevaPalabra= "";
+    for (let i = 0; i < numero; i++) {
+        nuevaPalabra+=letra.toLocaleUpperCase();
+        
+    }
+    console.log(nuevaPalabra);
+}
+crearPalabra2("a", 5);
+
+
+/*
+Hacer una función addGuiones que reciba como parámetro de entrada una cadena texto y devuelva una nueva cadena 
+que tendrá un guion medio detrás de cada letra. Utilizar para ello un bucle for.*/
+
+
+function addGuiones(cadena){
+
+    let nuevaPalabra="";
+    for (let i = 0; i < cadena.length; i++) {
+        
+        nuevaPalabra+=cadena[i].concat("-");
+        
+        
+    }
+    console.log(nuevaPalabra);
+}
+addGuiones("Hamburguesa")
+
+/*
+
+ Hacer una función contadorDeLetras que reciba como parámetro de entrada una cadena de texto y una letra
+  y devuelva el número de veces que esa letra esta presente en la palabra. Utilizar para ello un bucle for.
+
+ */
+
+  function contadorDeLetras(cadena,letra){
+
+    let cadenaSpliteada = String(cadena).split("");
+    let contador = 0;
+    for (let i = 0; i < cadenaSpliteada.length; i++) {
+
+        if (cadenaSpliteada[i]===String(letra)){
+            contador+=1;
+        }
+
+    }
+
+    console.log("Aparece ".concat(contador).concat(" veces"));
+  }
+
+  contadorDeLetras("miarma sevilla de mis amores","a");
+
+ /*
+ Realizar la evolución del ejercicio anterior sin tener en cuenta si la letra pasada como parámetro esta en mayúsculas o minúsculas */
+
+  function contadorDeLetrasUp(cadena,letra){
+
+    let cadenaSpliteada = String(cadena).split("");
+    let contador = 0;
+    for (let i = 0; i < cadenaSpliteada.length; i++) {
+
+        if (cadenaSpliteada[i]===String(letra) || cadenaSpliteada[i].toUpperCase()===String(letra).toUpperCase()){
+            contador+=1;
+        }
+
+    }
+
+    console.log("Aparece ".concat(contador).concat(" veces"));
+  }
+
+  contadorDeLetrasUp("miarma sevilla de mis amores","A");
+
+ /*
+
+/*
+ Hacer una función contadorDeLetras2 que reciba como parámetro de entrada dos cadenas de texto y una letra y devuelva la cadena de texto en la que dicha letra esta más presente.
+  Utilizar para ello un bucle for. No tener en cuenta si la letra pasada como parámetro esta en mayúsculas o minúsculas.
+
+ */ 
+
+ function contadorDeLetras2 (cadena1, cadena2, letra){
+
+    let cadenaSpliteada1 = String(cadena1).split("");
+    let cadenaSpliteada2 = String(cadena2).split("");
+
+    let contador = 0;
+    let contador2=0;
+
+    for (let i = 0; i < cadenaSpliteada1.length; i++) {
+
+        if (cadenaSpliteada1[i]===String(letra) || cadenaSpliteada1[i].toUpperCase()===String(letra).toUpperCase()){
+            contador+=1;
+        }
+
+    }
+
+    for (let e = 0; e < cadenaSpliteada2.length; e++) {
+
+        if (cadenaSpliteada2[e]===String(letra) || cadenaSpliteada2[e].toUpperCase()===String(letra).toUpperCase()){
+            contador2+=1;
+        }
+
+    }
+
+    if (contador>contador2){
+        console.log("Aparece más en ".concat(cadena1))
+    }
+    else if (contador<contador2){
+        console.log("Aparece más en ".concat(cadena2))
+    }
+    else{
+        console.log("Aparece el mismo número de veces")
+    }
+
+ }
+
+ contadorDeLetras2("a", "MANZANAS", "a")
+ 
+ // Escribe una función llamada toCase que reciba como parámetro de entrada una cadena de texto y devuelva esa misma cadena de texto en minúsculas, 
+ // un guión medio y de nuevo esa misma cadena de texto en mayúsculas.
+
+function toCase (cadena) {
+    return console.log(String(cadena).toLowerCase().concat("-").concat(String(cadena).toUpperCase()));
+}
+toCase("pablo")
+
+ // Escribe una función llamada shortcut que tome dos cadenas de texto y devuelva la inicial de cada una de las dos cadenas.
+
+ function shortcut(cadena, cadena2){
+    
+    let primeraLetra1= String(cadena).substring(0,1);
+    let primeraLetra2= String(cadena2).substring(0,1);
+
+    return console.log(primeraLetra1.concat(primeraLetra2))
+
+ }
+ shortcut('Amnesty', 'International');
