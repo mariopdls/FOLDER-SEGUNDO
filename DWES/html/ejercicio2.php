@@ -22,7 +22,7 @@
 hola
 
 <?php
-$selectedIntereses = [];
+$selectedIntereses= [];
 if (isset($_POST["intereses"])) {
     $selectedIntereses = $_POST["intereses"];
 }
@@ -34,24 +34,24 @@ if (isset($_POST["intereses"])) {
 
 <form method ="POST"> 
 <p>Intereses (selecciona los que apliquen):</p>
-<label><input type="checkbox" name="intereses[]" value="tecnologia" <? if (in_array("tecnologia", $selectedIntereses)){echo "checked";}?>> Tecnología</label>
+<label><input type="checkbox" name="intereses[]" value="tecnologia" <?php if (in_array("tecnologia", $selectedIntereses)){echo "checked";}?>> Tecnología</label>
 <br>
-<label><input type="checkbox" name="intereses[]" value="deporte" > Deporte</label>
+<label><input type="checkbox" name="intereses[]" value="deporte" <?php if (in_array("deporte", $selectedIntereses)){echo "checked";}?>> Deporte</label>
 <br>
-<label><input type="checkbox" name="intereses[]" value="lectura"> Lectura</label>
+<label><input type="checkbox" name="intereses[]" value="lectura"> <?php if (in_array("lectura", $selectedIntereses)){echo "checked";}?> Lectura</label>
 <br>
-<label><input type="checkbox" name="intereses[]" value="viajes"> Viajes</label>
+<label><input type="checkbox" name="intereses[]" value="viajes"> <?php if (in_array("viajes", $selectedIntereses)){echo "checked";}?> Viajes</label>
 <br><br>
 
 
 <p>Género:</p>
 <label><input type="radio" name="genero" value="hombre"> Hombre</label><br>
-<label><input type="radio" name="genero" value="mujer"> Mujer</label><br>
+<label><input type="radio" name="genero" value="mujer" checked> Mujer</label><br>
 <label><input type="radio" name="genero" value="otro"> Otro</label><br><br>
 
 <p>Curso:</p>
 <label><input type="radio" name="curso" value="primero"> 1º Daw</label><br>
-<label><input type="radio" name="curso" value="segundo"> 2º Daw</label><br>
+<label><input type="radio" name="curso" value="segundo" checked> 2º Daw</label><br>
 <label><input type="radio" name="curso" value="otro"> Otro</label><br><br>
 
 <label>
