@@ -465,3 +465,80 @@ toCase("pablo")
 
  }
  shortcut('Amnesty', 'International');
+
+
+ //20. Escribe una función llamada firstChar, 
+ // que devuelva la primera letra que no sea un espacio cuando una cadena de texto es pasada.
+
+ function firstChar (cadena){
+    let cadenaLetra = String(cadena).trim.substring(0,1)
+
+    return console.log(cadenaLetra);
+ }
+
+ //21 . Escribe una función llamada indexOfIgnoreCase que reciba dos cadenas de texto 
+ // y devuelva la posición de la primera ocurrencia de la segunda cadena de texto en la primera.
+  // La función no debería tener en cuenta mayúsculas y minúsculas.
+ function indexOfIgnoreCase (cadena1, cadena2){
+    let nuevaCadena = "";
+    for (let i = 0; i < cadena1.length; i++) {
+        for (let e = 0; e < cadena2.length; e++) {
+            
+            if (String(cadena1[i]).match(String(cadena2[e])) && String(cadena1[i]).toUpperCase==String(cadena2[e]).toUpperCase){
+                nuevaCadena+=cadena2[e];
+            }
+
+        }
+    }
+    return console.log(nuevaCadena);
+ }
+ indexOfIgnoreCase("limon", "agumon");
+
+ //22. Escribe una función llamada firstWord que reciba como parámetro de entrada una cadena de texto 
+ // y devuelva la primera palabra de esa cadena. 
+ // La primera palaba de la cadena serán todos los caracteres que hay hasta el primer espacio.
+
+ function firstWord(cadena){
+    let cadenaSaneada= String(cadena).split(" ");
+    
+    return console.log(cadenaSaneada[0]);
+ }
+
+ firstWord("Hola buenos dias");
+
+//Crea una función llamada saludoPersonalizado que tome un nombre y una edad como argumentos 
+// y utilice un template literal para devolver un saludo personalizado que incluya el nombre y la edad.
+
+function saludoPersonalizado(nombre,edad){
+
+    return console.log(`Hola, ${nombre}, tu edad es ${edad};`);
+}
+
+saludoPersonalizado("Enrique", 20);
+
+//Utiliza un template literal para crear una cadena que muestre una lista de compras con varios elementos.
+//  Luego, muestra esa cadena en la consola.
+
+let arrayFrutas = ['manzana', 'pera', 'platano'];
+
+function listaElementos (lista){
+    
+    return console.log(`${arrayFrutas}` );
+}
+
+listaElementos(arrayFrutas);
+
+//Escribe una función llamada informacionProducto que tome un objeto con información de un producto
+//  (nombre, precio, categoría, etc.) y utilice un template literal para generar una descripción del producto. 
+// Luego, muestra esa descripción en la consola.
+let movil = { Marca: "Apple", Modelo: "256GB", Cancerígeno: "si"};
+
+
+function informacionProducto(obj){
+
+    return console.log(`Móvil - Marca: ${obj.Marca}, Modelo: ${obj.Modelo}, ¿Cancerígeno?: ${obj.Cancerígeno}`);
+
+
+}
+
+informacionProducto(movil);
