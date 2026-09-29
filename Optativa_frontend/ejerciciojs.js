@@ -24,7 +24,8 @@ const peliculas = [
 { titulo: "Tenet", año: 2020, valoracion: 7.3, vista: false }
 ];
 
-let peliculasJSX = peliculas.filter(peliculas => peliculas.vista===false).map(peliculas => peliculas.valoracion);
+
+let peliculasJSX = peliculas.filter(peliculas => peliculas.vista===false).map(peliculas.titulo, peliculas.año, peliculas.valoracion);
 
 //ej3
 
@@ -46,4 +47,4 @@ function saludarUsuario(obj){
     console.log( "Hola Elena, tu tema elegido es oscuro");
 }
 
-saludarUsuarui(datosUsuario);
+saludarUsuario(datosUsuario);
