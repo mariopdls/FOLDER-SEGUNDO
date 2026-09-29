@@ -46,4 +46,34 @@ menu: [
 
 const nuevoEstadoRestaurante = {...estadoRestaurante};
 
-console.log(estadoRestaurante.menu.map(id => )
+estadoRestaurante.menu.map(m => {
+    if (m.id===2){
+        m.disponible=true;
+    }
+})
+
+console.log(nuevoEstadoRestaurante);
+
+// //La tienda necesita saber el total de dinero ingresado, pero solo de las ventas con estado
+// "completado" .
+// 1. Encadena un .filter() para aislar las ventas completadas.
+// 2. Encadena un .reduce() a ese resultado para sumar todos los importes.
+// 3. El resultado final debe guardarse en una variable llamada totalIngresos e imprimirse
+// por consola (el resultado debería ser 170).
+
+const ventas = [
+{ id: 1, cliente: "Juan", importe: 150, estado: "completado" },
+{ id: 2, cliente: "Ana", importe: 80, estado: "pendiente" },
+{ id: 3, cliente: "Luis", importe: 20, estado: "completado" },
+{ id: 4, cliente: "Marta", importe: 300, estado: "cancelado" }
+];
+
+const nuevasVentas = {...ventas};
+
+const total = Object.values(nuevasVentas).filter(t => t.estado==="completado").reduce((acum, venta) => {
+    return acum + venta.importe;
+}, 0);
+
+console.log(total);
+
+//pffffffffffffffffff

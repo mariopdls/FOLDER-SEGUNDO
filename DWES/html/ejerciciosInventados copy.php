@@ -1,4 +1,4 @@
-
+<!-- <!-- 
 <?php 
 
     $colorFondo = "white";
@@ -19,7 +19,7 @@
     }
 
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,4 +34,4 @@
     <a href="http://localhost/2_php_inicio/ejerciciosInventados.php?tema=oscuro">Modo oscuro</a>
     
 </body>
-</html>
+</html> -->
