@@ -11,12 +11,11 @@
             contador+=1;
         }
 
-        console.log("hay ".concat(contador).concat(" vocales"))
-        return contador;
+        return "hay ".concat(contador).concat(" vocales")
     }
 
     
-cuentaVocales(palabra);
+console.log(cuentaVocales(palabra));
 
 // 2. invertirCadena(texto)
 // Devuelve la cadena invertida.
@@ -87,6 +86,11 @@ console.log(esPalindromo("Dábale arroz a la zorra el abad"));
 // Ej.: "Carrera" → "C*rr*r*" .
 // Pista: puedes usar replace con regex global o un bucle carácter a carácter.
 
+    function sustituirVocalesPorAsterisco() {
+
+        
+
+    }
 
 // 6. comprimirRepeticiones(texto)
 // Implementa un “run-length encoding” simple que convierta "aaabbc" en "a3b2c1" .
