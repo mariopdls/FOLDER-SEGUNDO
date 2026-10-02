@@ -50,11 +50,9 @@
       <tbody>
         
       <?php 
-        // 1. Recorremos cada una de las 3 personas
         foreach ($persona as $propiedad => $lista_propiedades) {
             echo "<tr>";
 
-            // 2. Metemos el segundo bucle DENTRO para pintar los datos de la persona actual
             foreach ($lista_propiedades as $clave => $value) {
                 echo "<td>" . $value . "</td>";
             }

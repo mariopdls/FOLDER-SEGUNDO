@@ -109,11 +109,25 @@ console.log(validarEmail("antonio@gmail.com"));
 // Debe tener en cuenta diferentes formatos de números de teléfono, como "(123) 456-7890" o "1234567890".
 
 function esTelefono (cadena){
-    const elementos = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+
+    let cadenaSplit= cadena.split(" ");
+    let bandera=false;
+
+        if ((cadenaSplit[0][0] === "(" && cadenaSplit[0][4] === ")") && ((cadenaSplit[0].length==5 && cadenaSplit[1].length==8))) {
+
+                if (cadenaSplit[1][3]=="-"){
+                    bandera=true;
+                }
+
+        }
+        else if (cadenaSplit[0].length==9 && /^\d+$/.test(cadenaSplit[0])){
+            bandera=true;
+        }
     
-    
+    return bandera;
+
 }
-console.log(esTelefono("21342155")) 
+console.log(esTelefono("616698649"))
 
 
 //Escribe una función llamada codificarBase64 que tome una cadena y la codifique en Base64. Luego, crea otra función llamada decodificarBase64 que tome una cadena en Base64 y la decodifique de vuelta a su forma original.
@@ -135,27 +149,63 @@ console.log(decodificarBase64("aG9sYQ=="))
 // puntuación y diferenciar mayúsculas de minúsculas. Por ejemplo, "Anita lava la tina" debería considerarse un palíndromo de frase.
 
 
-function esPalindromo (cadena) {
-    let bandera= false;
-    let invertida = "";
-    let signos = [".",",",";","!","¡"]
+    // let bandera= false;
+    // let invertida = "";
+    // let signos = [".",",",";","!","¡"]
 
-    for (let i = String(cadena).length -1 ; i >=0 ; i--) {
-        if (String(cadena)[i] != " " || String(cadena)[i].match(signos)){
-        invertida+=String(cadena)[i];
-        }
-    }
-    let cadenasinespacios = "";
-    for (let e = 0; e < cadena.length; e++) {
-        if (String(cadena)[e] != " " || String(cadena)[e].includes(signos)){
-        cadenasinespacios+=String(cadena)[e];
-        }
-    }
+    // for (let i = String(cadena).length -1 ; i >=0 ; i--) {
+    //     if (String(cadena)[i] != " " || String(cadena)[i].match(signos)){
+    //     invertida+=String(cadena)[i];
+    //     }
+    // }
+    // let cadenasinespacios = "";
+    // for (let e = 0; e < cadena.length; e++) {
+    //     if (String(cadena)[e] != " " || String(cadena)[e].includes(signos)){
+    //     cadenasinespacios+=String(cadena)[e];
+    //     }
+    // }
 
-    if (cadenasinespacios.toLowerCase().normalize("NFD").replace(/[^\w\s]/gi, '')===invertida.toLowerCase().normalize("NFD").replace(/[^\w\s]/gi, '')){
-        bandera =true;
-    }
+    // if (cadenasinespacios.toLowerCase().normalize("NFD").replace(/[^\w\s]/gi, '')===invertida.toLowerCase().normalize("NFD").replace(/[^\w\s]/gi, '')){
+    //     bandera =true;
+    // }
     
-    return bandera;
+    // return bandera;
+    
+function esPalindromo(cadena) {
 
+let bandera = false;
+let cadenaSpliteada = String(cadena).split("");
+let cadenaOriginalsinEsp = cadena.replaceAll(" ", "");
+
+let cadenaInversa = cadenaSpliteada.reverse().join("");
+
+let cadenafin = cadenaInversa.replaceAll(" ", "");
+
+if (String(cadenafin) == String(cadenaOriginalsinEsp)) {
+  bandera = true;
 }
+
+return bandera;
+}
+
+console.log(esPalindromo("anita lava la tina")); 
+
+function encontrarPalindromo (frase){
+
+    let fraseString = String(frase).split(" ");
+    let fraseAlReves =  String(frase).split("").reverse().join("");
+    let bandera= false;
+    let fraseAlRevesSpliteada = fraseAlReves.split(" ") 
+
+    fraseString.forEach(element => {
+        if (fraseAlRevesSpliteada.includes(element)){
+            bandera=true;
+        }
+    });
+
+    return bandera ;
+
+     
+}
+
+encontrarPalindromo("reconocer somos nivel hola")
