@@ -186,6 +186,7 @@ let alumnos2 =
 let copiaAlumnos2 = {...alumnos2, curso: 'DAM'};
 console.log(copiaAlumnos2);
 
+<<<<<<< HEAD
 
 function mostrarAlumno({ nombre, nota }) {
   console.log(`Alumno: ${nombre} - Nota: ${nota}`);
@@ -194,3 +195,45 @@ function mostrarAlumno({ nombre, nota }) {
 const alumno = { nombre: "Ana", nota: 9.5 };
 mostrarAlumno(alumno); 
 
+=======
+//ej6
+
+let ventas = [
+  {producto:'Libro', unidades:3, precio:12.5},
+  {producto:'Bolígrafo', unidades:10, precio:1.2},
+  {producto:'Carpeta', unidades:2, precio:5.0}
+];
+
+function arrayUnidades (array) {
+
+    let arrayFinal = [];
+    array.forEach(producto => {
+       arrayFinal.push(producto.precio*producto.unidades);
+    });
+
+    console.log(arrayFinal);
+
+}
+arrayUnidades(ventas);
+
+function ventasTotales(array){
+    let sumatotaluds = 0;
+
+        array.forEach(element => {
+            sumatotaluds += element.unidades;
+        });
+
+
+    array.reduce((acumulador, producto)=> {
+        acumulador + producto.precio;
+        let preciototal = sumatotaluds * acumulador;
+
+        return console.log(preciototal);
+    },0);
+
+
+
+    
+}
+ventasTotales(ventas);
+>>>>>>> e0daa1ca30bea9032009d0ec2d0783f551907e3a
