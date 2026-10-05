@@ -186,3 +186,11 @@ let alumnos2 =
 let copiaAlumnos2 = {...alumnos2, curso: 'DAM'};
 console.log(copiaAlumnos2);
 
+
+function mostrarAlumno({ nombre, nota }) {
+  console.log(`Alumno: ${nombre} - Nota: ${nota}`);
+}
+
+const alumno = { nombre: "Ana", nota: 9.5 };
+mostrarAlumno(alumno); 
+
