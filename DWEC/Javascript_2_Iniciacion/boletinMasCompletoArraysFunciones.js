@@ -233,6 +233,7 @@ function ventasTotales(array){
     
 }
 ventasTotales(ventas);
+<<<<<<< HEAD
 
 function masDosUds(array){
     const masuds = console.log(array.filter(t => t.unidades>2));
@@ -265,3 +266,5 @@ function arrayInvertidoSlice(array){
 }
 
 arrayInvertidoSlice(ventas);
+=======
+>>>>>>> 79365b2fcdd8bef7bdd3701773b197c95f859083
