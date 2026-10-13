@@ -186,7 +186,6 @@ let alumnos2 =
 let copiaAlumnos2 = {...alumnos2, curso: 'DAM'};
 console.log(copiaAlumnos2);
 
-<<<<<<< HEAD
 
 function mostrarAlumno({ nombre, nota }) {
   console.log(`Alumno: ${nombre} - Nota: ${nota}`);
@@ -195,7 +194,6 @@ function mostrarAlumno({ nombre, nota }) {
 const alumno = { nombre: "Ana", nota: 9.5 };
 mostrarAlumno(alumno); 
 
-=======
 //ej6
 
 let ventas = [
@@ -236,4 +234,3 @@ function ventasTotales(array){
     
 }
 ventasTotales(ventas);
->>>>>>> e0daa1ca30bea9032009d0ec2d0783f551907e3a
