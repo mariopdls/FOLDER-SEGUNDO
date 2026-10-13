@@ -186,7 +186,6 @@ let alumnos2 =
 let copiaAlumnos2 = {...alumnos2, curso: 'DAM'};
 console.log(copiaAlumnos2);
 
-<<<<<<< HEAD
 
 function mostrarAlumno({ nombre, nota }) {
   console.log(`Alumno: ${nombre} - Nota: ${nota}`);
@@ -195,7 +194,6 @@ function mostrarAlumno({ nombre, nota }) {
 const alumno = { nombre: "Ana", nota: 9.5 };
 mostrarAlumno(alumno); 
 
-=======
 //ej6
 
 let ventas = [
@@ -224,16 +222,46 @@ function ventasTotales(array){
         });
 
 
-    array.reduce((acumulador, producto)=> {
-        acumulador + producto.precio;
-        let preciototal = sumatotaluds * acumulador;
+    let preciofin= array.reduce((acumulador, producto)=> {
+    
+        acumulador += producto.precio;
 
-        return console.log(preciototal);
+        return acumulador;
     },0);
 
-
-
+    return console.log(preciofin*sumatotaluds);
     
 }
 ventasTotales(ventas);
->>>>>>> e0daa1ca30bea9032009d0ec2d0783f551907e3a
+
+function masDosUds(array){
+    const masuds = console.log(array.filter(t => t.unidades>2));
+    return masuds;
+}
+masDosUds(ventas);
+
+
+function arrayACadena (array){
+    const cadena = array.map(t => t.producto).join(",");
+    return console.log(cadena);
+}
+
+arrayACadena(ventas);
+
+function arrayInvertido(array){
+
+    let invertido = array.reverse();
+
+    return console.log(invertido);
+}
+
+arrayInvertido(ventas);
+
+function arrayInvertidoSlice(array){
+    let copia = [{...array}];
+    let invertido = copia.reverse();
+
+    return console.log(invertido);
+}
+
+arrayInvertidoSlice(ventas);
