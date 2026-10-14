@@ -41,3 +41,17 @@ formulario.insertBefore(label, formulario.children[1]);
 formulario.insertBefore(input, formulario.children[1]);
 formulario.children[1].after(espacio)
 formulario.children[1].after(espacio2)
+
+
+//ejercicio2
+
+let pdeLipsum = document.querySelector('#lipsum p');
+
+let primerParrafo = document.createElement('p');
+
+let nuevoParrafo2= document.createTextNode('Este es el nuevo segundo párrafo');
+let espacio3 = document.createElement('br');
+
+pdeLipsum.appendChild(nuevoParrafo2);
+
+
