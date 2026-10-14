@@ -52,6 +52,42 @@ let primerParrafo = document.createElement('p');
 let nuevoParrafo2= document.createTextNode('Este es el nuevo segundo párrafo');
 let espacio3 = document.createElement('br');
 
-pdeLipsum.appendChild(nuevoParrafo2);
+primerParrafo.appendChild(nuevoParrafo2);
+
+pdeLipsum.before(primerParrafo)
+
+//ejercicio 3
+
+let primerElemento = document.querySelector('li');
+
+let nuevoLi = document.createElement('li');
+let textoLi =  document.createTextNode('Nuevo elemento de lista');
+
+let nuevoElemento = nuevoLi.appendChild(textoLi);
+
+primerElemento.replaceWith(nuevoElemento)
+nuevoElemento.remove();
+
+//ej4
+
+let elementoID = document.querySelector('div');
+
+elementoID.setAttribute("data-nuevo", "123");
+
+elementoID.removeAttribute("data-nuevo");
+
+let bodyB = document.getElementById('dato2');
+
+bodyB.style.backgroundColor="red";
+
+//ejercicio5
+
+let elemento = document.querySelector('body');
+
+elemento.className+="destacado";
+
+elemento.classList.add("nuevo-estilo");
+
+elemento.classList.remove("destacado");
 
 
