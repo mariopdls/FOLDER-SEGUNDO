@@ -222,15 +222,49 @@ function ventasTotales(array){
         });
 
 
-    array.reduce((acumulador, producto)=> {
-        acumulador + producto.precio;
-        let preciototal = sumatotaluds * acumulador;
+    let preciofin= array.reduce((acumulador, producto)=> {
+    
+        acumulador += producto.precio;
 
-        return console.log(preciototal);
+        return acumulador;
     },0);
 
-
-
+    return console.log(preciofin*sumatotaluds);
     
 }
 ventasTotales(ventas);
+<<<<<<< HEAD
+
+function masDosUds(array){
+    const masuds = console.log(array.filter(t => t.unidades>2));
+    return masuds;
+}
+masDosUds(ventas);
+
+
+function arrayACadena (array){
+    const cadena = array.map(t => t.producto).join(",");
+    return console.log(cadena);
+}
+
+arrayACadena(ventas);
+
+function arrayInvertido(array){
+
+    let invertido = array.reverse();
+
+    return console.log(invertido);
+}
+
+arrayInvertido(ventas);
+
+function arrayInvertidoSlice(array){
+    let copia = [{...array}];
+    let invertido = copia.reverse();
+
+    return console.log(invertido);
+}
+
+arrayInvertidoSlice(ventas);
+=======
+>>>>>>> 79365b2fcdd8bef7bdd3701773b197c95f859083
