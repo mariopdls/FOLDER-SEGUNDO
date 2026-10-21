@@ -1,24 +1,30 @@
-function Mascota({ nombre, animal }) {
-  return <p>{nombre} es un {animal}</p>;
+
+import { products } from './script.js'
+
+//ejercicio 1
+
+function ShowProducts({prod}){
+  
+let productos = prod.map(t => 
+  t.stock===0 ? (<p style={{backgroundColor:'red'}}>Agotado</p>) 
+  : t.stock>0 && t.stock<=3 ? (<p style={{backgroundColor:'orange'}}>¡Últimas unidades!</p>)
+  : t.isOnSale ? (<p style={{textDecoration: 'line-through'}}><span>{t.price}</span>{t.price - t.discountPrice} </p>)
+  : <p>{t.price}</p>
+ );
+
+return productos;
 }
 
-function Libro ({titulo, autor, paginas}) {
-    return <h3> {titulo}, de {autor} ({paginas} páginas)</h3>
-}
 
-function Tarea ({texto, hecha}) {
 
-  return <p>{hecha ? "✅" : "⬜"}{texto}</p>
-
-}
 function App() {
   return (
     <div>
-      <Tarea texto="chambear" hecha={false}/>
-      <Tarea texto="chambear" hecha={true}/>
-
+      <ShowProducts prod={products}/>
+      
     </div>
-
-  );
+  )
 }
+
+
 export default App;
