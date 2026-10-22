@@ -79,6 +79,7 @@ form.addEventListener('submit', (e) => {
         alert("Enviado con éxito");
         formularioEnviado();    
         }
+        })
 // })
 
 // //5
