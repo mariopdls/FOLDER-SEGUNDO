@@ -1,66 +1,40 @@
-/* CAMBIA ESTOS TRES COLORES PARA PERSONALIZAR TU WEB. Tríada de ejemplo. */
+/* Hoja de estilos personalizada simple para Astra Studio */
+
 :root {
-    --color-principal: #F6E13C;
-    --color-secundario: #3C51F6;
-    --color-terciario: #c5afeb;
+--color-primario: #0d6efd;
+--color-hover: #0b5ed7;
+--color-texto: #212529;
 }
 
-/* Solo personalizamos colores y algunos detalles; la maquetación la hace Bootstrap. */
-.navbar,
-.footer-web {
-    background-color: var(--color-principal);
+body {
+color: var(--color-texto);
+background-color: #f8f9fa;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
 }
 
-.navbar .navbar-brand,
-.navbar .nav-link,
-.footer-web {
-    color: rgb(5, 5, 5);
-}
-
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-    color: #000000;
-}
-
-.btn-primary {
-    --bs-btn-bg: var(--color-principal);
-    --bs-btn-border-color: var(--color-principal);
-    --bs-btn-hover-bg: #174679;
-    --bs-btn-hover-border-color: #174679;
-}
-
-.btn-secondary {
-    --bs-btn-bg: var(--color-secundario);
-    --bs-btn-border-color: var(--color-secundario);
-}
-
-.color-terciario {
-    background-color: var(--color-terciario);
-    color: #212529;
-}
-
+/* Título de sección con indicador lateral */
 .titulo-seccion {
-    border-left: 5px solid var(--color-secundario);
-    padding-left: 1rem;
+border-left: 4px solid var(--color-primario);
+padding-left: 0.75rem;
 }
 
+/* Ajustes de imágenes */
 .carousel-item img {
-    height: 340px;
-    object-fit: cover;
-    filter: brightness(.68);
+height: 320px;
+object-fit: cover;
 }
 
 .card-img-top {
-    height: 190px;
-    object-fit: cover;
+height: 160px;
+object-fit: cover;
 }
 
-.footer-web a {
-    color: rgb(2, 2, 2);
+/* Regla personalizada de 5 columnas en escritorios grandes (xl) */
+@media (min-width: 1200px) {
+.col-xl-2-4 {
+flex: 0 0 auto;
+width: 20%;
 }
-
-#botonVer{
-    color: #1d1d1e;
-    background-color: #c5afeb;
-    border-color: #c5afeb;
 }
