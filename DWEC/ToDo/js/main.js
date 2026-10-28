@@ -2,12 +2,11 @@
 /*
     Cada tarea tendrá esta estructura:
 
-    {
         id: 1,
         name: "Estudiar JavaScript",
         completed: false
-    }
 */
+
 
 // Recuperamos las tareas guardadas.
 // Si no hay datos, comenzamos con un array vacío.
@@ -19,15 +18,42 @@
 // Elementos del DOM
 
 
+let taskList = document.getElementById("taskList");
+let input = document.getElementById("taskInput");
+let sendButton = document.getElementById("addBtn");
+let count = 0;
 
 /**
  * Muestra todas las tareas en la página.
+* Añade una nueva tarea al array. */
+
+
+function addTask() {
+    
+    let li = document.createElement("li");
+    let text = input.value;
+
+    let nodeLi = document.createTextNode(text);
+
+    li.setAttribute("id", "tarea-".concat(count));
+    li.setAttribute("status", "toDo");
+
+    count++;
 
 
 
-/**
- * Añade una nueva tarea al array.
+    li.innerText = li.getAttribute("status").concat("  --  ");
+    li.appendChild(nodeLi);
 
+    taskList.appendChild(li);
+
+   
+}
+
+
+sendButton.addEventListener("click", () => {
+    addTask();
+})
 
 
 /**
@@ -35,8 +61,10 @@
 
 
 
+
 /**
  * Elimina una tarea por su identificador.
+
 
 
 
@@ -49,4 +77,4 @@
 
 
 // Mostramos las tareas al cargar la página.
-
+*/
