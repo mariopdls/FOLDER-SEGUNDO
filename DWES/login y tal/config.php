@@ -1,7 +1,7 @@
 <?php
-$host = 'nombre_de_tu_contenedor_db'; // El nombre del servicio en tu docker-compose.yml
+$host = 'db'; // El nombre del servicio en tu docker-compose.yml
 $port = '3306';                       // Puerto interno del contenedor
-$db   = 'nombre_de_tu_base_de_datos'; // Lo que ves en phpMyAdmin
+$db   = 'aulatech'; // Lo que ves en phpMyAdmin
 $user = 'root';
 $pass = 'root';                       // En Docker/MySQL suele ser 'root' o lo que definieras en variables de entorno
 $charset = 'utf8mb4';
@@ -20,9 +20,9 @@ $options = [
 try {
     // 3. Crear la conexión (Instanciar el objeto PDO)
     $pdo = new PDO($dsn, $user, $pass, $options);
-    echo "Conexión exitosa"
 
 } catch (PDOException $e) {
-    // Si algo falla, capturamos el error
-    echo "Falló"
+    die("❌ Error en la conexión: " . $e->getMessage());
+
+    
 }
