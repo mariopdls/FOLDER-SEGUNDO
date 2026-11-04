@@ -9,17 +9,17 @@ function requireAuth ($pdo){
     if (empty($_SESSION['userId'])){
         header("Location: login.php");
         exit;
-    }
+    } //si la sesión está vacía, redirige al login
 
     $query = "SELECT id, username, full_name, role FROM users WHERE  id=:id ";
     $statement =  $pdo -> prepare($query);
     $statement -> bindParam(":id", $_SESSION['userId']);
     $statement ->execute();
 
-    $user = $statement ->fetch();
+    $user = $statement ->fetch(); //busca al usuario 
 
     if (!$user){
-        $_SESSION = [];
+        $_SESSION = [];    //si no hay usuario en la bdd, destruye la sesion y redirige al logn
         session_destroy();
         header("Location: login.php");
         exit;
@@ -35,4 +35,5 @@ function isAdmin($user) {
     }
     return $bandera;
 }
+
 ?>

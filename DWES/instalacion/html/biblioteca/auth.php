@@ -28,3 +28,11 @@ function requireAuth($pdo){
 return $user;
 
 }
+
+function isAdmin($user) {
+    $bandera=FALSE;
+    if ($user['role']=='admin'){
+        $bandera=TRUE;
+    }
+    return $bandera;
+}
