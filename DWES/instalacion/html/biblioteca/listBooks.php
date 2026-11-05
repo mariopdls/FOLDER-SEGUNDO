@@ -2,7 +2,6 @@
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/bookRepository.php';
-
 $currentUser = requireAuth($pdo);   
 $size = 4;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -11,7 +10,13 @@ $total = countAll($pdo);
 
 $numPags = ceil ($total / $size);
 
-$books = findPage($pdo, $page, $size)
+$books = findPage($pdo, $page, $size);
+
+if (isset($_POST['btnRemove'])){
+    removeBook($pdo, $_POST['hiddenId']);
+    header("Location: listBooks.php");
+    exit;
+}   
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +46,7 @@ $books = findPage($pdo, $page, $size)
                     <th>Autor</th>
                     <th>Género</th>
                     <th>Año</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,18 +55,41 @@ $books = findPage($pdo, $page, $size)
                 foreach ($books as $array => $book) {
                     echo "
                     <tr>
-                        <td>{$book['id']}</td>
+                        <td>{$book['id']} </td>
                         <td>{$book['title']}</td>
                         <td>{$book['author']}</td>
                         <td>{$book['genre']}</td>
-                        <td>{$book['year']}</td>            
-                    </tr>
-                    ";
+                        <td>{$book['year']}</td> 
+                        <td>";?>
+
+                    
+                
+                    <?php  if (isAdmin($currentUser)){
+
+                        echo "<form action='' method='post'>
+                              
+                              <input type='hidden' name='hiddenId' value='{$book['id']}'>
+                              <button name='btnRemove'> Eliminar</button>
+                              </form>
+                              <a href='bookForm.php?id={$book['id']}'><button name='btnEdit'> Editar </button></a>
+
+                        ";}
+                    ?>
+
+                    <?php echo " </td> " ?>        
+                        
+
+                        
+                   <?php echo "</tr>";
+
+                   
                 }
                 
                 ?>
             </tbody>
         </table>
+
+        <a href="bookForm.php"><button>Añadir libro</button></a>
 
         <nav>
     <ul class="pagination justify-content-center">
@@ -73,7 +102,6 @@ $books = findPage($pdo, $page, $size)
     </ul>
 </nav>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

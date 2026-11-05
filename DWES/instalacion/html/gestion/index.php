@@ -2,7 +2,6 @@
 require_once __DIR__ . '/auth.php';
 
 requireAuth($pdo);
-// Llamar a requireAuth($pdo) para obtener $currentUser
 ?>
 <!DOCTYPE html>
 <html lang="es">

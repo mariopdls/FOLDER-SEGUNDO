@@ -3,6 +3,7 @@ include_once __DIR__ . '/config.php';
 include_once __DIR__ . '/auth.php';
 
 $currentUser=requireAuth($pdo);
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@ $currentUser=requireAuth($pdo);
         <div class="container">
             <a class="navbar-brand" href="index.php">Biblioteca</a>
             <div class="d-flex gap-2">
-               <a href="?link=listado">Listado de libros</a>
+               <a href="listBooks.php">Listado de libros</a>
                 <?php 
                 
                 if (isAdmin($currentUser)){
