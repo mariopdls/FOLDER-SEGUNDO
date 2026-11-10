@@ -11,7 +11,7 @@ function obtenerMenu($currentUser) {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link" href="articles.php">Ver artículos</a></li>
-            <li class="nav-item"><a class="nav-link" href="myProfile.php">Ver mis datos</a></li>';
+            <li class="nav-item"><a class="nav-link" href="myProfile.php">Ver mis datos</a></li>
 
     // 2. Si es admin, hacemos otro echo con sus dos opciones exclusivas
     if (isAdmin($currentUser)) {

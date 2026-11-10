@@ -22,12 +22,7 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
 } catch (PDOException $e) {
-<<<<<<< HEAD
     die("❌ Error en la conexión: " . $e->getMessage());
 
     
-=======
-    // Si algo falla, capturamos el error
-    die("Error");
->>>>>>> 75887798545ae03fdb6af827e93f45b79adc5281
 }

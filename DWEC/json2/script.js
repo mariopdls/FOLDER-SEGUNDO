@@ -11,39 +11,37 @@ btnUsuarios.addEventListener("click",cargarUsuarios);
 function cargarProductos() {
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "http://localhost:3000/productos", true);
+    xhr.open("GET", "http://localhost:3000/productos", true); //abre
 
-    xhr.addEventListener("load", function() {
+
+    xhr.addEventListener("readystatechange", () => { //hace el readyState para ver el estado
+        console.log(xhr.readyState);
+    })
+
+    xhr.addEventListener("load", function() { //carga para ver el resultado
         if (xhr.status ===200){
             const productos= JSON.parse(xhr.responseText);
 
             mostrarProductos(productos)
-        }else{
-            console.log("Error HTTP: " + xhr.status)
         }
 
     })
 
+    xhr.addEventListener("error", () => {
+        let body = document.getElementById('pError');
+        let p = document.createElement('p');
+        p.textContent="";
+        let textP = document.createTextNode('Error, no funciona');
+        p.appendChild(textP);
+        body.appendChild(p);            
+        console.log("Error: " + xhr.status);
+
+
+    })
         xhr.send();
 
 }
 
-function cargarUsuarios() {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:3000/users", true); //he envuelto los usuarios en un array para hacerlo
-
-    xhr.addEventListener("load", function(){
-        if (xhr.status ===200){
-            const usuarios = JSON.parse(xhr.responseText);
-            mostrarUsuarios(usuarios)
-        }    else {
-        console.log("Error HTTP: " + xhr.status);
-    }
-    })
-
-    xhr.send();
-    
-}
 
 function mostrarProductos(productos) {
 
@@ -66,23 +64,13 @@ function mostrarProductos(productos) {
     
 }
 
-function mostrarUsuarios (usuarios) {
-    
-    listaUsuarios.replaceChildren();
 
-    
-    usuarios.forEach(function (usuarios) {
+// 1. Añade un evento readystatechange que muestre el valor de readyState en la consola.
 
-        const li = document.createElement("li");
 
-        const texto = document.createTextNode(
-            usuarios.name + " - " + usuarios.email
-        );
 
-        li.appendChild(texto);
-
-        listaUsuarios.appendChild(li);
-
-    });
-
-}
+// 2. Mantén el evento load para mostrar los productos en el DOM.
+// 3. Añade el evento error para mostrar un mensaje si falla la conexión.
+// 4. Detén JSON Server y pulsa el botón Cargar productos. Comprueba qué sucede.
+// 5. Vuelve a iniciar JSON Server y cambia la URL a /productos/999.
+// Comprueba la diferencia entre una respuesta HTTP 404 y un fallo de conexión.
