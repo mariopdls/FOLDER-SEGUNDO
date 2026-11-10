@@ -11,3 +11,10 @@ function getUser($pdo, $data){
 
     return $user;
 }
+
+function getAllUsers($pdo){
+    $query = "SELECT * FROM users";
+    $statement = $pdo -> prepare($query);
+    $statement -> execute();
+    return $statement -> fetchAll();
+}

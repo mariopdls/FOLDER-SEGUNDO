@@ -49,3 +49,14 @@ function getMovie($pdo, $id){
     return $statement -> fetch();
 
 }
+
+function addMovie($pdo,$title,$director,$genre,$year,$available){
+    $query = "INSERT into movies (title,director,genre,year,available) VALUES (:title,:director,:genre,:year,:available)";
+    $statement = $pdo -> prepare($query);
+    $statement -> bindParam(":director",$director);
+    $statement -> bindParam(":title",$title);
+    $statement -> bindParam(":genre",$genre);
+    $statement -> bindParam(":year",$year);
+    $statement -> bindParam(":available",$available);
+    $statement -> execute();
+}

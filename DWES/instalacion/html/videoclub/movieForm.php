@@ -8,9 +8,46 @@ if (!isAdmin($user)){
     header("Location: index.php");
     exit;
 }
-
 if (isset($_GET['id'])){
 $movie = getMovie($pdo, $_GET['id']);
+}else{
+    $movie=null;
+}
+$error="";
+
+if (isset($_POST['btnPost'])){
+    if (empty($_POST['idOculto'])){
+        if ((empty($_POST['title']) || $_POST['title']==="") 
+            || (empty($_POST['director']) || $_POST['director']==="")
+            || (empty($_POST['genre']) || $_POST['genre']==="")
+            || (empty($_POST['year']) || $_POST['year']==="")
+            || (empty($_POST['available']) || $_POST['available']==="" )){
+
+            $error = "Faltan campos por rellenar";
+
+        }else{
+            addMovie($pdo, $_POST['title'], $_POST['director'], $_POST['genre'],$_POST['year'],$_POST['available'] );
+            header("Location:index.php");
+        exit;
+        }
+    }else{
+        
+        if (empty($_POST['idOculto'])){
+        if ((empty($_POST['title']) || $_POST['title']==="") 
+            || (empty($_POST['director']) || $_POST['director']==="")
+            || (empty($_POST['genre']) || $_POST['genre']==="")
+            || (empty($_POST['year']) || $_POST['year']==="")
+            || (empty($_POST['available']) || $_POST['available']==="" )){
+
+            $error = "Faltan campos por rellenar";
+
+        }else{
+        updateMovie($pdo, $_POST['idOculto'], $_POST['title'], $_POST['director'], $_POST['genre'],$_POST['year'],$_POST['available'] );
+        header("Location:index.php");
+        exit;
+        }
+        }
+    }
 }
 ?>
 <!doctype html>
@@ -36,39 +73,37 @@ $movie = getMovie($pdo, $_GET['id']);
         <h2>
             <?php if (isset($_GET['id'])){
                 echo "Modificar";
-                
-
             }else{
                 echo "Añadir";
             }
             ?></h2>
 
         <form method="post">
-            <input type="hidden" name="idOculto" value="<?php if (isset($_GET['id'])){ echo $movie['id'];}?>">
+            <input type="hidden" name="idOculto" value="<?php echo $_GET['id'] ?? ''; ?>">
             <div class="mb-3">
                 <label class="form-label">Título</label>
-                <input type="text" name="title" class="form-control" value="<?php echo isset($_GET['id']) ? $movie['title']: ""; ?>">
+                <input type="text" name="title" class="form-control" value="<?php echo isset($movie) ? $movie['title'] : ''; ?>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Director</label>
-                <input type="text" name="director" class="form-control" value="<?php echo isset($_GET['id']) ? $movie['director']: ""; ?>">
+                <input type="text" name="director" class="form-control" value="<?php echo isset($movie) ? $movie['director'] : ''; ?>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Género</label>
                 <select name="genre" class="form-select">
                     
-                <option value="Acción"      <?= (isset($movie) && $movie['genre'] === 'Acción')           ? 'selected' : '' ?>>Acción</option>
-                <option value="Comedia"     <?= (isset($movie) && $movie['genre'] === 'Comedia')          ? 'selected' : '' ?>>Comedia</option>
-                <option value="Drama"       <?= (isset($movie) && $movie['genre'] === 'Drama')            ? 'selected' : '' ?>>Drama</option>
-                <option value="Terror"      <?= (isset($movie) && $movie['genre'] === 'Terror')           ? 'selected' : '' ?>>Terror</option>
-                <option value="Ciencia ficción" <?= (isset($movie) && $movie['genre'] === 'Ciencia ficción') ? 'selected' : '' ?>>Ciencia ficción</option>
-                <option value="Animación"   <?= (isset($movie) && $movie['genre'] === 'Animación')        ? 'selected' : '' ?>>Animación</option>
+                <option value="Acción"      <?php echo  (isset($movie) && $movie['genre'] === 'Acción')           ? 'selected' : '' ?>>Acción</option>
+                <option value="Comedia"     <?php echo  (isset($movie) && $movie['genre'] === 'Comedia')          ? 'selected' : '' ?>>Comedia</option>
+                <option value="Drama"       <?php echo (isset($movie) && $movie['genre'] === 'Drama')            ? 'selected' : '' ?>>Drama</option>
+                <option value="Terror"      <?php echo (isset($movie) && $movie['genre'] === 'Terror')           ? 'selected' : '' ?>>Terror</option>
+                <option value="Ciencia ficción" <?php echo  (isset($movie) && $movie['genre'] === 'Ciencia ficción') ? 'selected' : '' ?>>Ciencia ficción</option>
+                <option value="Animación"   <?php echo (isset($movie) && $movie['genre'] === 'Animación')        ? 'selected' : '' ?>>Animación</option>
                
             </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Año</label>
-                <input type="number" name="year" class="form-control" value="<?php echo isset($_GET['id']) ? $movie['year']: ""; ?>">
+                <input type="number" name="year" class="form-control" value="<?php echo isset($movie) ? $movie['year'] : ''; ?>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Disponible</label>
@@ -77,7 +112,7 @@ $movie = getMovie($pdo, $_GET['id']);
                     <option value="0">No</option>
                 </select>
             </div>
-            <button name="btnPost" class="btn btn-primary"> <?php if (isset($_GET['id'])){
+            <button name="btnPost" class="btn btn-primary"> <?php if (isset($movie)){
                 echo "Modificar";
                 
 
@@ -87,6 +122,9 @@ $movie = getMovie($pdo, $_GET['id']);
             ?></button>
             <a href="listMovies.php" class="btn btn-secondary">Cancelar</a>
         </form>
+    
+        <?php echo $error!="" ? "<br><div class='alert alert-danger'>Faltan campos por rellenar</div>": ""; ?>
+
     </div>
 </body>
 </html>
