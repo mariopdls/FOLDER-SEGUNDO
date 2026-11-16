@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Ana García",
+      "email": "ana@ejemplo.com"
+    },
+    {
+      "id": "2",
+      "name": "Luis Pérez",
+      "email": "luis@ejemplo.com"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "userId": "1",
+      "title": "Introducción a JavaScript",
+      "body": "JavaScript permite añadir interactividad a las páginas web."
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "title": "Trabajando con el DOM",
+      "body": "El DOM permite modificar dinámicamente los elementos HTML."
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": "1",
+      "userId": "2",
+      "body": "Muy interesante la explicación."
+    },
+    {
+      "postId": "1",
+      "userId": "1",
+      "body": "eee",
+      "id": "KpJzG8V"
+    }
+  ]
+}

@@ -8,3 +8,14 @@ function getLotteryList($pdo){
     $statement -> execute();
     return $statement -> fetchAll();
 }
+
+function insertIntoBoletos ($pdo,$username, $numeros, $estrellas, $fecha_sorteo){
+    $query= "INSERT into boletos (username, numeros, estrellas, fecha_sorteo) VALUES (:username, :numeros, :estrellas, :fecha_sorteo)";
+    $statement = $pdo -> prepare($query);
+    $statement -> bindParam(":username", $username);
+    $statement -> bindParam(":numeros", $numeros);
+    $statement -> bindParam(":estrellas", $estrellas);
+    $statement -> bindParam(":fecha_sorteo", $fecha_sorteo);
+    $statement -> execute();
+
+}

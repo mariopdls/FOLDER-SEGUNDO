@@ -4,16 +4,29 @@ require_once("../layout/header.php");
 require_once("../Database.php");
 require_once("./userFunction.php");
 
+
+
+
+    if (isset($_GET['alert']) && $_GET['alert']==='noSession'){
+        echo "<div class='alert alert-danger'>Debes estar registrado para apostar</div>";
+    }
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['username']) && isset($_POST["password"]) && !empty($_POST['username']) && !empty($_POST["password"])) {
         try {
-            $role = getRole($_POST['username'],$_POST["password"]);
+
+            $user = authUser($pdo, $_POST['username']);
+
+            $role = getRole($pdo, $_POST['username'],$_POST["password"]);
+
             if ($role == null) {
                 echo '<div class="alert alert-danger mt-3">Usuario o contraseña incorrectos.</div>';
             } else {
                 $_SESSION['user']=$_POST['username'];
-                echo "<script>window.location.href = '../index.php';</script>";
+                $_SESSION['role']= $role;
+                echo "<script>window.location.href = '../index.php?alert=success';</script>";
                 return;
+
             }
 
         } catch (PDOException $e) {
@@ -24,6 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo '<div class="alert alert-danger mt-3">Usuario o password no enviado.</div>';
 
     }
+
+
 
 }
 
@@ -44,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 <div class="container mt-5">
     <a href="../index.php" class="btn btn-primary"><span class="glyphicon glyphicon-th-list"></span>Volver</a>
+
 </div>
 <?php 
     require_once("../layout/footer.php");

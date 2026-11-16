@@ -2,12 +2,12 @@
 session_start();
 require_once("layout/header.php");
 require_once("Database.php");
-require_once ("functions/functionsUsers.php");
-
+require_once ("user/userFunction.php");
 
 $users = getWinnersOfTheDay($pdo, $_POST['hiddenId']);
-if (empty($users)){
-    echo "<div alert alert-danger>No existen registros ganadores> </div>";
+
+if (empty($users) || $users==null){
+    echo "<div class='alert alert-danger'>No existen registros ganadores </div>";
 }
 ?>
 
@@ -41,19 +41,39 @@ if (empty($users)){
         <tbody>
                 
                 <?php 
-                
-                foreach ($users as $user) {
-                    echo "
-                <tr>
-                    <td>{$user['username']}</td>
-                    <td>{$user['numeros']}</td>
-                    <td>{$user['estrellas']}</td>
-                    <td>{$user['fecha_sorteo']} </td>
-                                    
-                </tr>
-                ";
-                }
+                if (isset($users)){
+                    foreach ($users as $user) {
+                        echo "
+                    <tr>
+                        <td>";?> 
+                        
+                        <?php 
+                        
+                        $usernameAsteriscs = str_repeat("*", strlen($user['username']));
 
+                        if (isset($_SESSION['user'])){
+                            if ($_SESSION['user'] === $user['username']){
+                                echo "{$user['username']}";
+                            }else{
+                                echo "{$usernameAsteriscs}"; 
+                            }
+                        }  else{
+                            echo "{$usernameAsteriscs}";
+                        }
+                        
+                        ?> 
+                        
+                        
+                        <?php 
+                        echo "</td>
+                        <td>{$user['numeros']}</td>
+                        <td>{$user['estrellas']}</td>
+                        <td>{$user['fecha_sorteo']} </td>
+                                        
+                    </tr>
+                    ";
+                    }
+                }
                 ?>
           
                
