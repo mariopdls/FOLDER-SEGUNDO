@@ -1,0 +1,168 @@
+.party-app {
+  background-color: #121016;
+  color: #e6dcf0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.party-app h1 {
+  color: #f39c12;
+  margin-top: 0;
+}
+
+/* Contador de confirmados */
+.guest-counter {
+  background: #23192d;
+  border: 2px solid #e67e22;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(230, 126, 34, 0.4);
+}
+
+/* Formulario de alta */
+.guest-form {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  background: #171022;
+  border: 1px dashed #9b59b6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.spooky-input {
+  background: #1b1429;
+  border: 1px solid #7d44ad;
+  color: #2ecc71;
+  padding: 0.6rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 160px;
+}
+
+.spooky-input:focus {
+  outline: none;
+  box-shadow: 0 0 8px #9b59b6;
+}
+
+.add-btn {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #2ecc71;
+}
+
+/* Buscador */
+.search-box {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+/* Rejilla de invitados */
+.guests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.empty-msg {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #bb86fc;
+  padding: 2rem;
+  border: 1px dashed #3d2c52;
+  border-radius: 8px;
+}
+
+.guest-card {
+  background: #1c1524;
+  border: 2px solid #3d2c52;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.guest-card:hover {
+  transform: translateY(-4px);
+}
+
+.guest-card h3 {
+  margin: 0 0 0.3rem;
+}
+
+.guest-card.confirmed {
+  border-color: #2ecc71;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+.costume {
+  margin: 0.3rem 0;
+  color: #bb86fc;
+}
+
+.no-costume {
+  margin: 0.3rem 0;
+  color: #fca5a5;
+  font-style: italic;
+}
+
+/* Insignias */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.badge-ok {
+  background-color: #1e5631;
+  color: #a7f3c0;
+}
+
+.badge-pending {
+  background-color: #d35400;
+  color: #fff;
+}
+
+/* Botón de confirmar / cancelar */
+.toggle-btn {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  background: #8e44ad;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  background: #9b59b6;
+}
+
+.toggle-btn.cancel {
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+}
+
+.toggle-btn.cancel:hover {
+  background: #e74c3c;
+  color: #fff;
+}

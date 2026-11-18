@@ -1,13 +1,10 @@
 import React from 'react';
-import Contador from './Contador'; 
-import Cambiador from './Cambiador'
-
+import ContactForm from './ContactForm';
 function App() {
   return (
     <div>
       <h1>Mi aplicación</h1>
-      <Contador/>
-      <Cambiador/>
+      <ContactForm/>
     </div>
   );
 }

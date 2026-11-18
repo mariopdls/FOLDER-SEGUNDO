@@ -1,0 +1,21 @@
+services:
+  db:
+    image: mysql:8.1.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"     # AÑADIDO: sin esto Spring Boot (fuera de Docker) no llega a MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"       # CAMBIADO de 8080: el 8080 lo usa Spring Boot. Entra por http://localhost:8081
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+
+volumes:
+  mysql_data:

@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #282c34;
+  font-family: sans-serif;
+  font-size: 3rem;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #03afff;
+  border-radius: 4px;
+  transition: transform 0.3s ease-in-out;
+
+  border: solid 1px rgb(255, 255, 255);
+}
+
+.grid-item:hover {
+  filter: opacity(0.9);
+  transform: scale(1.04);
+}
+
+.grid-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-rows: minmax(200px,auto);
+    gap: 30px;
+    padding:20px
+}
+
+.item1{
+    grid-row: span 2;     
+    background-image: url(https://i.pinimg.com/736x/71/de/a3/71dea39f455587c7fc29bcf47e9f0e80.jpg);
+    background-size: cover;
+}
+
+.item2{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8IdSLpg8yN71iE4omhJjS2Wb565TIvqVpDMAi7uFO3A&s=10);
+    background-size: cover;
+}
+
+.item3{
+    background-image: url(https://i.pinimg.com/1200x/38/a3/16/38a3164d4c3c2513fd3280d9091d0484.jpg);
+    background-size: cover;
+}
+
+.item4{
+    grid-column: span 2;    
+    background-image: url(https://www.nicepng.com/png/detail/32-322743_single-minion-png-high-quality-image-minions-cute.png);
+    background-size: cover;
+}
+
+.item5{
+    background-image: url(https://i.pinimg.com/236x/0e/83/35/0e83351959ac94cfc50043125f4d4ea7.jpg);
+    background-size: cover;
+}
+
+.item6{
+    background-image: url(https://i.pinimg.com/736x/9c/4d/82/9c4d82374a729e78064fd459b86fde0d.jpg);
+    background-size: cover;
+}
+
+.item7{
+    background-image: url(https://www.freeiconspng.com/uploads/despicable-minion-png-9.png);
+    background-size: cover;   
+}
+
+
+.item8{
+    grid-column: span 2;    
+    background-image: url(https://www.pngitem.com/pimgs/m/11-119215_minion-png-transparent-png.png);
+    background-size: cover;
+}
+
+.item9{
+    background-image: url(https://files.pi.fyi/cdn-cgi/image/quality=70,format=auto/users/cmim267m402ejgz3ifm3abgd7/images/ba09ytatlm1n7u83ttsmxozv/original.jpg);
+    background-size: cover;
+}
+
+.item10{
+    grid-column:  1 / -1;
+    background-image: url(https://i.pinimg.com/736x/9c/4d/82/9c4d82374a729e78064fd459b86fde0d.jpg);
+    background-size: cover;
+}
+
+
+.image{
+    border-radius: 2px;
+}
